@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.larten.autotest.addressbook.CreateGroupTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-09T10:21:02" hostname="smolenskiidd-pc" time="2.25">
+<testsuite name="ru.larten.autotest.addressbook.CreateGroupTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-09T10:43:47" hostname="smolenskiidd-pc" time="2.527">
   <properties/>
-  <testcase name="createGroup" classname="ru.larten.autotest.addressbook.CreateGroupTest" time="2.25"/>
+  <testcase name="testGroupCreation" classname="ru.larten.autotest.addressbook.CreateGroupTest" time="2.527"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
