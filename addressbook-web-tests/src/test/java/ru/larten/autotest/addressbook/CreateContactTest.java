@@ -13,7 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import java.util.*;
 
-public class CreateContactTest {
+public class CreateContactTest extends TestBase {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
