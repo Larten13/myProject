@@ -17,12 +17,15 @@ public class TestBase {
     private WebDriver driver;
     private Map<String, Object> vars;
 
+    private String ip;
+
     @Before
     public void setUp() {
       driver = new ChromeDriver();
       js = (JavascriptExecutor) driver;
       vars = new HashMap<String, Object>();
-      driver.get("http://localhost/addressbook/");
+      ip = "10.5.28.135";
+      driver.get("http://" + ip + "/addressbook/");
       driver.manage().window().setSize(new Dimension(974, 1040));
       login("admin", "secret");
     }
@@ -48,6 +51,22 @@ public class TestBase {
       driver.findElement(By.name("submit")).click();
     }
 
+    protected void createNewContact(ContactData contactData) {
+        driver.findElement(By.linkText("add new")).click();
+        driver.findElement(By.name("firstname")).click();
+        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
+        driver.findElement(By.name("middlename")).click();
+        driver.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
+        driver.findElement(By.name("lastname")).click();
+        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+        driver.findElement(By.name("nickname")).click();
+        driver.findElement(By.name("nickname")).sendKeys(contactData.getNickname());
+        driver.findElement(By.name("title")).click();
+        driver.findElement(By.name("title")).sendKeys(contactData.getTitle());
+        driver.findElement(By.name("company")).click();
+        driver.findElement(By.name("company")).sendKeys(contactData.getNameCompany());
+    }
+
     protected void goToPageGroups() {
       driver.findElement(By.linkText("groups")).click();
     }
@@ -56,7 +75,7 @@ public class TestBase {
         driver.findElement(By.name("selected[]")).click();
     }
 
-    protected void selectGroup() {
+    protected void deleteSelectedGroup() {
         driver.findElement(By.name("delete")).click();
     }
 }

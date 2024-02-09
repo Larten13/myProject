@@ -1,6 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
-mainClassName = "script"
+mainClassName = 'ru.larten.addressbook.FirstScript'
 
 repositories {
     mavenCentral()
