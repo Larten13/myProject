@@ -4,28 +4,34 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.larten.autotest.addressbook.model.GroupData;
 
-public class GroupHelper {
-    private WebDriver driver;
+public class GroupHelper extends HelperBase{
 
     public GroupHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void createNewGroup(GroupData groupData) {
-      driver.findElement(By.name("new")).click();
-      driver.findElement(By.name("group_name")).click();
-      driver.findElement(By.name("group_name")).sendKeys(groupData.getName());
-      driver.findElement(By.name("group_header")).click();
-      driver.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-      driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-      driver.findElement(By.name("submit")).click();
+        initGroupCreation();
+        enterField(By.name("group_name"), groupData.getName());
+        enterField(By.name("group_header"), groupData.getHeader());
+        enterField(By.name("group_footer"), groupData.getFooter());
+        submitGroupCreation();
+    }
+
+    private void submitGroupCreation() {
+        click(By.name("submit"));
+    }
+
+    private void initGroupCreation() {
+        click(By.name("new"));
     }
 
     public void selectGroups() {
-        driver.findElement(By.name("selected[]")).click();
+        click(By.name("selected[]"));
     }
 
     public void deleteSelectedGroup() {
-        driver.findElement(By.name("delete")).click();
+        click(By.name("delete"));
     }
+
 }

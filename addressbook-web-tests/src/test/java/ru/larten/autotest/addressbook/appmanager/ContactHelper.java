@@ -4,15 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.larten.autotest.addressbook.model.ContactData;
 
-public class ContactHelper {
-    private WebDriver driver;
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void createNewContact(ContactData contactData) {
-        clickToAddNewContact();
+        initAddNewContact();
         enterFirstname(contactData.getFirstname());
         enterMiddlename(contactData.getMiddlename());
         enterLastname(contactData.getLastname());
@@ -20,32 +19,27 @@ public class ContactHelper {
         enterCompanyName(contactData.getNameCompany());
     }
 
-    private void clickToAddNewContact() {
-        driver.findElement(By.linkText("add new")).click();
+    private void initAddNewContact() {
+        click(By.linkText("add new"));
     }
 
     private void enterFirstname(String firstname) {
-        driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).sendKeys(firstname);
+        enterField(By.name("firstname"), firstname);
     }
 
     private void enterMiddlename(String middlename) {
-        driver.findElement(By.name("middlename")).click();
-        driver.findElement(By.name("middlename")).sendKeys(middlename);
+        enterField(By.name("middlename"), middlename);
     }
 
     private void enterLastname(String lastname) {
-        driver.findElement(By.name("lastname")).click();
-        driver.findElement(By.name("lastname")).sendKeys(lastname);
+        enterField(By.name("lastname"), lastname);
     }
 
     private void enterNick(String nick) {
-        driver.findElement(By.name("nickname")).click();
-        driver.findElement(By.name("nickname")).sendKeys(nick);
+        enterField(By.name("nickname"), nick);
     }
 
     private void enterCompanyName(String nameCompany) {
-        driver.findElement(By.name("company")).click();
-        driver.findElement(By.name("company")).sendKeys(nameCompany);
+        enterField(By.name("company"), nameCompany);
     }
 }
