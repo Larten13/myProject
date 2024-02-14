@@ -7,13 +7,15 @@ public class CreateContactTest extends TestBase {
 
   @Test
   public void createContactTest() {
-    app.getContactHelper().createNewContact(
-            new ContactData(
-                    "firstname",
-                    "middlename",
-                    "lastname",
-                    "larten",
-                    "1",
-                    "myCompany"));
+    for (int i = 1; i <= 10; i++) {
+      String num = Integer.toString(i);
+      app.getContactHelper().createNewContact(
+              new ContactData(
+                      "firstname"+num,
+                      "middlename"+num,
+                      "lastname"+num,
+                      "larten"+num,
+                      "myCompany"+num));
+    }
   }
 }

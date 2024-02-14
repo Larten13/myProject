@@ -17,6 +17,25 @@ public class ContactHelper extends HelperBase {
         enterLastname(contactData.getLastname());
         enterNick(contactData.getNickname());
         enterCompanyName(contactData.getNameCompany());
+        submitContact();
+    }
+
+    public void deleteContact() {
+        selectContact();
+        clickToDelete();
+        submitBrowserAlert();
+    }
+
+    private void submitBrowserAlert() {
+        driver.switchTo().alert().accept();
+    }
+
+    private void clickToDelete() {
+        click(By.cssSelector(".left:nth-child(8) > input"));
+    }
+
+    private void submitContact() {
+        click(By.name("submit"));
     }
 
     private void initAddNewContact() {
@@ -41,5 +60,9 @@ public class ContactHelper extends HelperBase {
 
     private void enterCompanyName(String nameCompany) {
         enterField(By.name("company"), nameCompany);
+    }
+
+    public void selectContact() {
+        click(By.name("selected[]"));
     }
 }

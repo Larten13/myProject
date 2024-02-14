@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.larten.autotest.addressbook.tests.CreateContactTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-14T13:53:35" hostname="smolenskiidd-pc" time="8.068">
+  <properties/>
+  <testcase name="createContactTest" classname="ru.larten.autotest.addressbook.tests.CreateContactTest" time="8.068"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
