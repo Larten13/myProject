@@ -13,8 +13,13 @@ public class HelperBase {
 
     protected void enterField(By locator, String text) {
         click(locator);
-        clearField(locator);
-        driver.findElement(locator).sendKeys(text);
+        if (text != null) {
+            String containedTest = driver.findElement(locator).getAttribute("value");
+            if (containedTest.equals(text)) {
+                clearField(locator);
+                driver.findElement(locator).sendKeys(text);
+            }
+        }
     }
 
     private void clearField(By locator) {
