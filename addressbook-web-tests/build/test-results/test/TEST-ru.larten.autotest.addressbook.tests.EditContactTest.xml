@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.larten.autotest.addressbook.tests.EditContactTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-16T10:40:41" hostname="Larten-PC" time="3.072">
-  <properties/>
-  <testcase name="editContactTest" classname="ru.larten.autotest.addressbook.tests.EditContactTest" time="3.072"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
