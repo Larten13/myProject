@@ -13,7 +13,12 @@ public class HelperBase {
 
     protected void enterField(By locator, String text) {
         click(locator);
+        clearField(locator);
         driver.findElement(locator).sendKeys(text);
+    }
+
+    private void clearField(By locator) {
+        driver.findElement(locator).clear();
     }
 
     protected void click(By locator) {

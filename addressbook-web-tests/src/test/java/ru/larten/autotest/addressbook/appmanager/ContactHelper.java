@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.larten.autotest.addressbook.model.ContactData;
 
+import java.util.logging.Logger;
+
 public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
@@ -24,6 +26,24 @@ public class ContactHelper extends HelperBase {
         selectContact();
         clickToDelete();
         submitBrowserAlert();
+    }
+
+    public void modifyContact(ContactData contactData) {
+        goToEditPage();
+        enterFirstname(contactData.getFirstname());
+        enterMiddlename(contactData.getMiddlename());
+        enterLastname(contactData.getLastname());
+        enterNick(contactData.getNickname());
+        enterCompanyName(contactData.getNameCompany());
+        saveChanges();
+    }
+
+    private void saveChanges() {
+        click(By.name("update"));
+    }
+
+    private void goToEditPage() {
+        click(By.cssSelector("tr:nth-child(2) > td:nth-child(8) img"));
     }
 
     private void submitBrowserAlert() {

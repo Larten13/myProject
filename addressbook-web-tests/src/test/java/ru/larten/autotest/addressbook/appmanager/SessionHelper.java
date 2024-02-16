@@ -18,6 +18,6 @@ public class SessionHelper extends HelperBase {
 
     public void setupSession(String ip, String port) {
         driver.get("http://" + ip + ":" + port + "/addressbook/");
-        driver.manage().window().setSize(new Dimension(974, 1040));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
     }
 }
