@@ -16,8 +16,8 @@ public class SessionHelper extends HelperBase {
         click(By.cssSelector("input:nth-child(7)"));
     }
 
-    public void setupSession(String ip) {
-        driver.get("http://" + ip + "/addressbook/");
+    public void setupSession(String ip, String port) {
+        driver.get("http://" + ip + ":" + port + "/addressbook/");
         driver.manage().window().setSize(new Dimension(974, 1040));
     }
 }

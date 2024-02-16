@@ -17,7 +17,7 @@ public class ApplicationManager {
         contactHelper = new ContactHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
-        sessionHelper.setupSession("10.5.28.135");
+        sessionHelper.setupSession("10.5.28.135", "8080");
         sessionHelper.login("admin", "secret");
     }
 
