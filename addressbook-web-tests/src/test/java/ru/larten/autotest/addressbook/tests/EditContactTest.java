@@ -14,7 +14,9 @@ public class EditContactTest extends  TestBase {
                             "middlenameModified",
                             "lastnameModified",
                             "lartenModified",
-                            "myCompanyModified"));
+                            "myCompanyModified",
+                            null),
+                    false);
             app.getContactHelper().saveChanges();
     }
 }

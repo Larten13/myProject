@@ -16,7 +16,9 @@ public class CreateContactTest extends TestBase {
                       "middlename"+num,
                       "lastname"+num,
                       "larten"+num,
-                      "myCompany"+num));
+                      "myCompany"+num,
+                      "test_group"),
+              true);
       app.getContactHelper().submitContact();
       app.getNavigationHelper().goToPageNewContact();
     }
