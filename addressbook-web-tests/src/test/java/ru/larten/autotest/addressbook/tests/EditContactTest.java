@@ -7,12 +7,14 @@ public class EditContactTest extends  TestBase {
 
     @Test
     public void editContactTest() {
-            app.getContactHelper().modifyContact(
+        app.getNavigationHelper().goToEditPage();
+            app.getContactHelper().fillAllFields(
                     new ContactData(
                             "firstnameModified",
                             "middlenameModified",
                             "lastnameModified",
                             "lartenModified",
                             "myCompanyModified"));
+            app.getContactHelper().saveChanges();
     }
 }

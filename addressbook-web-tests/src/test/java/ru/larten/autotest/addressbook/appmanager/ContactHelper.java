@@ -4,82 +4,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.larten.autotest.addressbook.model.ContactData;
 
-import java.util.logging.Logger;
-
 public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
         super(driver);
     }
 
-    public void createNewContact(ContactData contactData) {
-        initAddNewContact();
-        enterFirstname(contactData.getFirstname());
-        enterMiddlename(contactData.getMiddlename());
-        enterLastname(contactData.getLastname());
-        enterNick(contactData.getNickname());
-        enterCompanyName(contactData.getNameCompany());
-        submitContact();
+    public void fillAllFields(ContactData contactData) {
+        enterField(By.name("firstname"), contactData.getFirstname());
+        enterField(By.name("middlename"), contactData.getMiddlename());
+        enterField(By.name("lastname"), contactData.getLastname());
+        enterField(By.name("nickname"), contactData.getNickname());
+        enterField(By.name("company"), contactData.getNameCompany());
+
     }
 
-    public void deleteContact() {
-        selectContact();
-        clickToDelete();
-        submitBrowserAlert();
-    }
-
-    public void modifyContact(ContactData contactData) {
-        goToEditPage();
-        enterFirstname(contactData.getFirstname());
-        enterMiddlename(contactData.getMiddlename());
-        enterLastname(contactData.getLastname());
-        enterNick(contactData.getNickname());
-        enterCompanyName(contactData.getNameCompany());
-        saveChanges();
-    }
-
-    private void saveChanges() {
+    public void saveChanges() {
         click(By.name("update"));
     }
 
-    private void goToEditPage() {
-        click(By.cssSelector("tr:nth-child(2) > td:nth-child(8) img"));
-    }
-
-    private void submitBrowserAlert() {
-        driver.switchTo().alert().accept();
-    }
-
-    private void clickToDelete() {
+    public void clickToDelete() {
         click(By.cssSelector(".left:nth-child(8) > input"));
     }
 
-    private void submitContact() {
+    public void submitContact() {
         click(By.name("submit"));
-    }
-
-    private void initAddNewContact() {
-        click(By.linkText("add new"));
-    }
-
-    private void enterFirstname(String firstname) {
-        enterField(By.name("firstname"), firstname);
-    }
-
-    private void enterMiddlename(String middlename) {
-        enterField(By.name("middlename"), middlename);
-    }
-
-    private void enterLastname(String lastname) {
-        enterField(By.name("lastname"), lastname);
-    }
-
-    private void enterNick(String nick) {
-        enterField(By.name("nickname"), nick);
-    }
-
-    private void enterCompanyName(String nameCompany) {
-        enterField(By.name("company"), nameCompany);
     }
 
     public void selectContact() {

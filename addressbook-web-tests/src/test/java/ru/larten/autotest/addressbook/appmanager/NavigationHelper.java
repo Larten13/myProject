@@ -10,4 +10,16 @@ public class NavigationHelper extends HelperBase {
     public void goToPageGroups() {
       click(By.linkText("groups"));
     }
+
+    public void goToPageNewContact() {
+        click(By.linkText("add new"));
+    }
+
+    public void goToEditPage() {
+        click(By.cssSelector("tr:nth-child(2) > td:nth-child(8) img"));
+    }
+
+    public void submitBrowserAlert() {
+        driver.switchTo().alert().accept();
+    }
 }
