@@ -18,7 +18,7 @@ public class GroupHelper extends HelperBase{
         enterGroupFooter(groupData);
         submitGroupCreation();
     }
-    
+
     //TODO удалить метод и вынести функционал последовательным вызовом из самого теста
     public void modifyGroup(GroupData groupData) {
         selectGroups();
