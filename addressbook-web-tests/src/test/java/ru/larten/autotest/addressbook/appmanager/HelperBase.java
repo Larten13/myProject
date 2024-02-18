@@ -15,7 +15,7 @@ public class HelperBase {
         click(locator);
         if (text != null) {
             String containedTest = driver.findElement(locator).getAttribute("value");
-            if (containedTest.equals(text)) {
+            if (!containedTest.equals(text)) {
                 clearField(locator);
                 driver.findElement(locator).sendKeys(text);
             }
