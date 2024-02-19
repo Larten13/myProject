@@ -12,7 +12,7 @@ public class ContactHelper extends HelperBase {
         super(driver);
     }
 
-    public void fillAllFields(ContactData contactData, Boolean creation) {
+    public void fillAllFieldsContact(ContactData contactData, Boolean creation) {
         enterField(By.name("firstname"), contactData.getFirstname());
         enterField(By.name("middlename"), contactData.getMiddlename());
         enterField(By.name("lastname"), contactData.getLastname());

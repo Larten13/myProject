@@ -8,14 +8,29 @@ public class NavigationHelper extends HelperBase {
         super(driver);
     }
     public void goToPageGroups() {
+        if (isElementPresent(By.tagName("h1"))
+                && driver.findElement(By.tagName("h1")).getText().equals("Groups")
+                && isElementPresent(By.name("new"))) {
+            return;
+        }
       click(By.linkText("groups"));
     }
 
     public void goToPageNewContact() {
+        if (isElementPresent(By.tagName("h1"))
+                && driver.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
+                && isElementPresent(By.name("submit"))) {
+            return;
+        }
         click(By.linkText("add new"));
     }
 
-    public void goToEditPage() {
+    public void goToEditContactPage() {
+        if (isElementPresent(By.tagName("h1"))
+                && driver.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
+                && isElementPresent(By.name("update"))) {
+            return;
+        }
         click(By.cssSelector("tr:nth-child(2) > td:nth-child(8) img"));
     }
 

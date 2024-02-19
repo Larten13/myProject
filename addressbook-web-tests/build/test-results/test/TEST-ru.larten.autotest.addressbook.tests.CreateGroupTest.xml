@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.larten.autotest.addressbook.tests.CreateGroupTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-19T08:04:43" hostname="Larten-PC" time="3.209">
-  <properties/>
-  <testcase name="testGroupCreation" classname="ru.larten.autotest.addressbook.tests.CreateGroupTest" time="3.209"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

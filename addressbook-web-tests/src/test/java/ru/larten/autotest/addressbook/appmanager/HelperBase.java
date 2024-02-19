@@ -28,6 +28,7 @@ public class HelperBase {
     }
 
     protected void click(By locator) {
+        if (!isElementPresent(locator)) return;
         driver.findElement(locator).click();
     }
 
