@@ -10,50 +10,25 @@ public class GroupHelper extends HelperBase{
         super(driver);
     }
 
-    //TODO удалить метод и вынести функционал последовательным вызовом из самого теста
-    public void createNewGroup(GroupData groupData) {
-        initGroupCreation();
-        enterGroupName(groupData);
-        enterGroupHeader(groupData);
-        enterGroupFooter(groupData);
-        submitGroupCreation();
-    }
-
-    //TODO удалить метод и вынести функционал последовательным вызовом из самого теста
-    public void modifyGroup(GroupData groupData) {
-        selectGroups();
-        editGroup();
-        enterGroupName(groupData);
-        enterGroupHeader(groupData);
-        enterGroupFooter(groupData);
-        submitEditGroup();
-    }
-
-    private void submitEditGroup() {
-        click(By.name("update"));
-    }
-
-    private void enterGroupFooter(GroupData groupData) {
+      public void fillAllFieldsGroup(GroupData groupData) {
         enterField(By.name("group_footer"), groupData.getFooter());
-    }
-
-    private void enterGroupHeader(GroupData groupData) {
         enterField(By.name("group_header"), groupData.getHeader());
-    }
-
-    private void enterGroupName(GroupData groupData) {
         enterField(By.name("group_name"), groupData.getName());
     }
 
-    private void editGroup() {
+    public void submitEditGroup() {
+        click(By.name("update"));
+    }
+
+    public void editGroup() {
         click(By.name("edit"));
     }
 
-    private void submitGroupCreation() {
+    public void submitGroupCreation() {
         click(By.name("submit"));
     }
 
-    private void initGroupCreation() {
+    public void initGroupCreation() {
         click(By.name("new"));
     }
 

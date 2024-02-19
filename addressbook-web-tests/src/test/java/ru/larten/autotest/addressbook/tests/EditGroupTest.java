@@ -7,12 +7,13 @@ public class EditGroupTest extends TestBase{
     @Test
     public void editGroupTest() {
         app.getNavigationHelper().goToPageGroups();
-        app.getGroupHelper().modifyGroup(
+        app.getGroupHelper().selectGroups();
+        app.getGroupHelper().editGroup();
+        app.getGroupHelper().fillAllFieldsGroup(
                 new GroupData(
                         "test_group_modified",
                         "test_group_header_modified",
-                        "test_group_footer_modified"
-                )
-        );
+                        "test_group_footer_modified"));
+        app.getGroupHelper().submitEditGroup();
     }
 }
