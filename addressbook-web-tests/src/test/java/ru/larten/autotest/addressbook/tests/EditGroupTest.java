@@ -2,13 +2,16 @@ package ru.larten.autotest.addressbook.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 import ru.larten.autotest.addressbook.model.GroupData;
+
+import java.util.List;
 
 public class EditGroupTest extends TestBase{
     @Test
     public void editGroupTest() {
         app.getNavigationHelper().goToGroupsPage();
-        int before = app.getGroupHelper().getGroupCount();
+        List<WebElement> before = app.getGroupHelper().getGroupList();
         if (!app.getGroupHelper().isThereGroup()) {
             app.getGroupHelper().createNewGroup(new GroupData(
                     "test_group",
@@ -25,7 +28,7 @@ public class EditGroupTest extends TestBase{
                         "test_group_footer_modified"));
         app.getGroupHelper().submitEditGroup();
         app.getNavigationHelper().goToGroupsPage();
-        int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(before, after);
+        List<WebElement> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(before.size(), after.size());
     }
 }

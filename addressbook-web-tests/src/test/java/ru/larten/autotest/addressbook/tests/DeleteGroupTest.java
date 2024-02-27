@@ -2,7 +2,10 @@ package ru.larten.autotest.addressbook.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 import ru.larten.autotest.addressbook.model.GroupData;
+
+import java.util.List;
 
 public class DeleteGroupTest extends TestBase {
 
@@ -16,11 +19,11 @@ public class DeleteGroupTest extends TestBase {
                   "test_group_footer"));
           app.getNavigationHelper().goToGroupsPage();
       }
-      int before = app.getGroupHelper().getGroupCount();
+      List<WebElement> before = app.getGroupHelper().getGroupList();
       app.getGroupHelper().selectGroup();
       app.getGroupHelper().deleteSelectedGroup();
       app.getNavigationHelper().goToGroupsPage();
-      int after = app.getGroupHelper().getGroupCount();
-      Assert.assertTrue(before > after);
+      List<WebElement> after = app.getGroupHelper().getGroupList();
+      Assert.assertTrue(before.size() > after.size());
   }
 }
