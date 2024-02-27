@@ -1,5 +1,6 @@
 package ru.larten.autotest.addressbook.tests;
 
+import org.junit.Assert;
 import org.junit.Test;
 import ru.larten.autotest.addressbook.model.GroupData;
 
@@ -15,8 +16,11 @@ public class DeleteGroupTest extends TestBase {
                   "test_group_footer"));
           app.getNavigationHelper().goToPageGroups();
       }
+      int before = app.getGroupHelper().getGroupCount();
       app.getGroupHelper().selectGroups();
       app.getGroupHelper().deleteSelectedGroup();
       app.getNavigationHelper().goToPageGroups();
+      int after = app.getGroupHelper().getGroupCount();
+      Assert.assertTrue(before > after);
   }
 }
