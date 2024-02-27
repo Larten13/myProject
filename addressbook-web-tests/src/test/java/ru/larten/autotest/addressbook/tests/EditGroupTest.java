@@ -7,6 +7,13 @@ public class EditGroupTest extends TestBase{
     @Test
     public void editGroupTest() {
         app.getNavigationHelper().goToPageGroups();
+        if (!app.getGroupHelper().isThereGroup()) {
+            app.getGroupHelper().createNewGroup(new GroupData(
+                    "test_group",
+                    "test_group_header",
+                    "test_group_footer"));
+            app.getNavigationHelper().goToPageGroups();
+        }
         app.getGroupHelper().selectGroups();
         app.getGroupHelper().editGroup();
         app.getGroupHelper().fillAllFieldsGroup(

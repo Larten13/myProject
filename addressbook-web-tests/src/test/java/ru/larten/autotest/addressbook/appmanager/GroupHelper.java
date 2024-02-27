@@ -10,7 +10,13 @@ public class GroupHelper extends HelperBase{
         super(driver);
     }
 
-      public void fillAllFieldsGroup(GroupData groupData) {
+    public void createNewGroup(GroupData groupData) {
+        initGroupCreation();
+        fillAllFieldsGroup(groupData);
+        submitGroupCreation();
+    }
+
+    public void fillAllFieldsGroup(GroupData groupData) {
         enterField(By.name("group_footer"), groupData.getFooter());
         enterField(By.name("group_header"), groupData.getHeader());
         enterField(By.name("group_name"), groupData.getName());
@@ -40,4 +46,7 @@ public class GroupHelper extends HelperBase{
         click(By.name("delete"));
     }
 
+    public boolean isThereGroup() {
+        return isElementPresent(By.name("selected[]"));
+    }
 }
