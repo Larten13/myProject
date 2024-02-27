@@ -1,5 +1,6 @@
 package ru.larten.autotest.addressbook.tests;
 
+import org.junit.Assert;
 import org.junit.Test;
 import ru.larten.autotest.addressbook.model.ContactData;
 
@@ -8,6 +9,7 @@ public class EditContactTest extends  TestBase {
     @Test
     public void editContactTest() {
         app.getNavigationHelper().goToHomePage();
+        int before = app.getContactHelper().getCountContact();
         if (!app.getContactHelper().isContactThere()) {
             app.getNavigationHelper().goToPageNewContact();
             app.getContactHelper().createNewContact(
@@ -32,5 +34,8 @@ public class EditContactTest extends  TestBase {
                         "myCompanyModified",
                         null));
         app.getContactHelper().saveChanges();
+        app.getNavigationHelper().goToHomePage();
+        int after = app.getContactHelper().getCountContact();
+        Assert.assertEquals(before, after);
     }
 }

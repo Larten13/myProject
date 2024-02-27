@@ -16,7 +16,7 @@ public class EditGroupTest extends TestBase{
                     "test_group_footer"));
             app.getNavigationHelper().goToPageGroups();
         }
-        app.getGroupHelper().selectGroups();
+        app.getGroupHelper().selectGroup();
         app.getGroupHelper().editGroup();
         app.getGroupHelper().fillAllFieldsGroup(
                 new GroupData(

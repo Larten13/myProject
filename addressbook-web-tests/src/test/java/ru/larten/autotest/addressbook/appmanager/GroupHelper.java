@@ -38,7 +38,7 @@ public class GroupHelper extends HelperBase{
         click(By.name("new"));
     }
 
-    public void selectGroups() {
+    public void selectGroup() {
         click(By.name("selected[]"));
     }
 
