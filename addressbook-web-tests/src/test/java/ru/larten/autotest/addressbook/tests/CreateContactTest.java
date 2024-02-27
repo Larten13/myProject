@@ -11,7 +11,7 @@ public class CreateContactTest extends TestBase {
     app.getNavigationHelper().goToHomePage();
     int before = app.getContactHelper().getCountContact();
     for (int i = 1; i <= 10; i++) {
-      app.getNavigationHelper().goToPageNewContact();
+      app.getNavigationHelper().goToNewContactPage();
       String num = Integer.toString(i);
       app.getContactHelper().createNewContact(
               new ContactData(

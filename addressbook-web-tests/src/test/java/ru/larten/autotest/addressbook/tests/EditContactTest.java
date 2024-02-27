@@ -11,7 +11,7 @@ public class EditContactTest extends  TestBase {
         app.getNavigationHelper().goToHomePage();
         int before = app.getContactHelper().getCountContact();
         if (!app.getContactHelper().isContactThere()) {
-            app.getNavigationHelper().goToPageNewContact();
+            app.getNavigationHelper().goToNewContactPage();
             app.getContactHelper().createNewContact(
                     new ContactData(
                             "firstname",

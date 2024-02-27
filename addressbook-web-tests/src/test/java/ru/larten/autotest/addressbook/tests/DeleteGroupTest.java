@@ -8,18 +8,18 @@ public class DeleteGroupTest extends TestBase {
 
   @Test
   public void deleteGroupTest() {
-      app.getNavigationHelper().goToPageGroups();
+      app.getNavigationHelper().goToGroupsPage();
       if (!app.getGroupHelper().isThereGroup()) {
           app.getGroupHelper().createNewGroup(new GroupData(
                   "test_group",
                   "test_group_header",
                   "test_group_footer"));
-          app.getNavigationHelper().goToPageGroups();
+          app.getNavigationHelper().goToGroupsPage();
       }
       int before = app.getGroupHelper().getGroupCount();
       app.getGroupHelper().selectGroup();
       app.getGroupHelper().deleteSelectedGroup();
-      app.getNavigationHelper().goToPageGroups();
+      app.getNavigationHelper().goToGroupsPage();
       int after = app.getGroupHelper().getGroupCount();
       Assert.assertTrue(before > after);
   }

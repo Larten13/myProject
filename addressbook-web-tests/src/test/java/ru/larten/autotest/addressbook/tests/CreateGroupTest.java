@@ -8,15 +8,15 @@ public class CreateGroupTest extends TestBase {
 
   @Test
   public void testGroupCreation() {
-    app.getNavigationHelper().goToPageGroups();
+    app.getNavigationHelper().goToGroupsPage();
     int before = app.getGroupHelper().getGroupCount();
-    app.getNavigationHelper().goToPageGroups();
+    app.getNavigationHelper().goToGroupsPage();
     app.getGroupHelper().createNewGroup(
             new GroupData(
                     "test_group",
                     "test_group_header",
                     "test_group_footer"));
-    app.getNavigationHelper().goToPageGroups();
+    app.getNavigationHelper().goToGroupsPage();
     int after = app.getGroupHelper().getGroupCount();
     Assert.assertTrue(after > before);
   }

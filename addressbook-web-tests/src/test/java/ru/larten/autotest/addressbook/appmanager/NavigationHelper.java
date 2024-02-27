@@ -7,7 +7,7 @@ public class NavigationHelper extends HelperBase {
     public NavigationHelper(WebDriver driver) {
         super(driver);
     }
-    public void goToPageGroups() {
+    public void goToGroupsPage() {
         if (isElementPresent(By.tagName("h1"))
                 && driver.findElement(By.tagName("h1")).getText().equals("Groups")
                 && isElementPresent(By.name("new"))) {
@@ -16,7 +16,7 @@ public class NavigationHelper extends HelperBase {
       click(By.linkText("groups"));
     }
 
-    public void goToPageNewContact() {
+    public void goToNewContactPage() {
         if (isElementPresent(By.tagName("h1"))
                 && driver.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
                 && isElementPresent(By.name("submit"))) {

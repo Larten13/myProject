@@ -23,7 +23,7 @@ public class DeleteContactTest extends TestBase {
               true);
       app.getNavigationHelper().goToHomePage();
     }
-    app.getContactHelper().selectContact();
+    app.getContactHelper().selectContact(before-1);
     app.getContactHelper().clickToDelete();
     app.getNavigationHelper().submitBrowserAlert();
     int after = app.getContactHelper().getCountContact();
