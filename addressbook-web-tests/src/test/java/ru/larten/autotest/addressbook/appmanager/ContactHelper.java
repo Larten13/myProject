@@ -3,9 +3,12 @@ package ru.larten.autotest.addressbook.appmanager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.larten.autotest.addressbook.model.ContactData;
 import ru.larten.autotest.addressbook.model.GroupData;
+
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -54,5 +57,9 @@ public class ContactHelper extends HelperBase {
 
     public int getCountContact() {
         return driver.findElements(By.name("selected[]")).size();
+    }
+
+    public List<WebElement> getContactList() {
+        return driver.findElements(By.cssSelector("table[id=maintable] tr"));
     }
 }

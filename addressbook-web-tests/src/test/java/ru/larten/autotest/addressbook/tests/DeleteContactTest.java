@@ -2,7 +2,10 @@ package ru.larten.autotest.addressbook.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 import ru.larten.autotest.addressbook.model.ContactData;
+
+import java.util.List;
 
 
 public class DeleteContactTest extends TestBase {
@@ -10,7 +13,7 @@ public class DeleteContactTest extends TestBase {
   @Test
   public void deleteContactTest() {
     app.getNavigationHelper().goToHomePage();
-    int before = app.getContactHelper().getCountContact();
+    List<WebElement> before = app.getContactHelper().getContactList();
     if (!app.getContactHelper().isContactThere()) {
       app.getContactHelper().createNewContact(
               new ContactData(
@@ -23,10 +26,10 @@ public class DeleteContactTest extends TestBase {
               true);
       app.getNavigationHelper().goToHomePage();
     }
-    app.getContactHelper().selectContact(before-1);
+    app.getContactHelper().selectContact(before.size()-2);
     app.getContactHelper().clickToDelete();
     app.getNavigationHelper().submitBrowserAlert();
-    int after = app.getContactHelper().getCountContact();
-    Assert.assertTrue(after < before);
+    List<WebElement> after = app.getContactHelper().getContactList();
+    Assert.assertTrue(after.size() < before.size());
   }
 }

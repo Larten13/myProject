@@ -2,14 +2,17 @@ package ru.larten.autotest.addressbook.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 import ru.larten.autotest.addressbook.model.ContactData;
+
+import java.util.List;
 
 public class CreateContactTest extends TestBase {
 
   @Test
   public void createContactTest() {
     app.getNavigationHelper().goToHomePage();
-    int before = app.getContactHelper().getCountContact();
+    List<WebElement> before = app.getContactHelper().getContactList();
     for (int i = 1; i <= 10; i++) {
       app.getNavigationHelper().goToNewContactPage();
       String num = Integer.toString(i);
@@ -25,7 +28,7 @@ public class CreateContactTest extends TestBase {
       app.getContactHelper().submitContact();
     }
     app.getNavigationHelper().goToHomePage();
-    int after = app.getContactHelper().getCountContact();
-    Assert.assertEquals(after, before+10);
+    List<WebElement> after = app.getContactHelper().getContactList();
+    Assert.assertEquals(after.size(), before.size()+10);
   }
 }
