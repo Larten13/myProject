@@ -19,11 +19,14 @@ public class DeleteGroupTest extends TestBase {
                   "test_group_footer"));
           app.getNavigationHelper().goToGroupsPage();
       }
-      List<WebElement> before = app.getGroupHelper().getGroupList();
-      app.getGroupHelper().selectGroup();
+      List<GroupData> before = app.getGroupHelper().getGroupList();
+      app.getGroupHelper().selectGroup(before.size()-1);
       app.getGroupHelper().deleteSelectedGroup();
       app.getNavigationHelper().goToGroupsPage();
-      List<WebElement> after = app.getGroupHelper().getGroupList();
+      List<GroupData> after = app.getGroupHelper().getGroupList();
       Assert.assertTrue(before.size() > after.size());
+
+      before.remove(before.size() - 1);
+      Assert.assertEquals(before, after);
   }
 }
