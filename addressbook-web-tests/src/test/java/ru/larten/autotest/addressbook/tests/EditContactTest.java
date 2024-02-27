@@ -7,16 +7,30 @@ public class EditContactTest extends  TestBase {
 
     @Test
     public void editContactTest() {
-        app.getNavigationHelper().goToEditContactPage();
-            app.getContactHelper().fillAllFieldsContact(
+        app.getNavigationHelper().goToHomePage();
+        if (!app.getContactHelper().isContactThere()) {
+            app.getNavigationHelper().goToPageNewContact();
+            app.getContactHelper().createNewContact(
                     new ContactData(
-                            "firstnameModified",
-                            "middlenameModified",
-                            "lastnameModified",
-                            "lartenModified",
-                            "myCompanyModified",
-                            null),
-                    false);
-            app.getContactHelper().saveChanges();
+                            "firstname",
+                            "middlename",
+                            "lastname",
+                            "larten",
+                            "myCompany",
+                            "test_group_modified"),
+                    true);
+            app.getNavigationHelper().goToHomePage();
+            app.getNavigationHelper().goToEditContactPage();
+        }
+        app.getNavigationHelper().goToEditContactPage();
+        app.getContactHelper().fillAllFieldsContact(
+                new ContactData(
+                        "firstnameModified",
+                        "middlenameModified",
+                        "lastnameModified",
+                        "lartenModified",
+                        "myCompanyModified",
+                        null));
+        app.getContactHelper().saveChanges();
     }
 }

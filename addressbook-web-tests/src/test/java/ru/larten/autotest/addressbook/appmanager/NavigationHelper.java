@@ -37,4 +37,11 @@ public class NavigationHelper extends HelperBase {
     public void submitBrowserAlert() {
         driver.switchTo().alert().accept();
     }
+
+    public void goToHomePage() {
+        if (isElementPresent(By.id("maintable"))) {
+            return;
+        }
+        click(By.linkText("home"));
+    }
 }

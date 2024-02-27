@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.larten.autotest.addressbook.model.ContactData;
+import ru.larten.autotest.addressbook.model.GroupData;
 
 public class ContactHelper extends HelperBase {
 
@@ -12,17 +13,23 @@ public class ContactHelper extends HelperBase {
         super(driver);
     }
 
-    public void fillAllFieldsContact(ContactData contactData, Boolean creation) {
-        enterField(By.name("firstname"), contactData.getFirstname());
-        enterField(By.name("middlename"), contactData.getMiddlename());
-        enterField(By.name("lastname"), contactData.getLastname());
-        enterField(By.name("nickname"), contactData.getNickname());
-        enterField(By.name("company"), contactData.getNameCompany());
+    public void createNewContact(ContactData contactData, Boolean creation) {
+        fillAllFieldsContact(contactData);
         if (creation) {
             new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
+        submitContact();
+    }
+
+    public void fillAllFieldsContact(ContactData contactData) {
+        enterField(By.name("firstname"), contactData.getFirstname());
+        enterField(By.name("middlename"), contactData.getMiddlename());
+        enterField(By.name("lastname"), contactData.getLastname());
+        enterField(By.name("nickname"), contactData.getNickname());
+        enterField(By.name("company"), contactData.getNameCompany());
+
     }
 
     public void saveChanges() {
@@ -39,5 +46,9 @@ public class ContactHelper extends HelperBase {
 
     public void selectContact() {
         click(By.name("selected[]"));
+    }
+
+    public boolean isContactThere() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
